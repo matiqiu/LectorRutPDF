@@ -1,0 +1,2 @@
+C:\Users\matiqiu\Documents\Git\asd\LectorRutPDF\LectorRutPDF\bin\Release\net6.0\publish\win-x64\LectorRutPDF.pdb
+C:\Users\matiqiu\Documents\Git\asd\LectorRutPDF\LectorRutPDF\bin\Release\net6.0\publish\win-x64\LectorRutPDF.exe

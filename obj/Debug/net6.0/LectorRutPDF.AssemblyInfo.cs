@@ -11,8 +11,11 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("LectorRutPDF")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("matiqiu")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2023")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Aplicación para obtener los certificados de un documento PDF en base a los RUT qu" +
+    "e se encuentran en una planilla Excel.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("LectorRutPDF")]

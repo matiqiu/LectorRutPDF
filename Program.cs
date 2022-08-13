@@ -30,7 +30,7 @@ var pathCreado = Console.ReadLine();
 try
 {
     var excel = pathExcel;
-    //var excel = "C:\\Users\\matiqiu\\Desktop\\rodrigo\\tottus_sej_202202.xlsx";
+    //var excel = "C:\\Users\\matiqiu\\Desktop\\rodrigo\\tottus_btm_202202.xlsx";
     SLDocument sl = new SLDocument(excel);
 
     int iRow = 2;
@@ -45,10 +45,13 @@ try
         iRow++;
     }
 
-    if (listaRut.Contains("20.132.093-3"))
-    {
-        Console.WriteLine("bien");
-    }
+    if (listaRut.Count <= 0)
+        throw new Exception("El archivo Excel no contiene ningún rut o ninguno tiene el formato correspondiente. Ej: 11.111.111-1");
+
+    //if (listaRut.Contains("20.132.093-3"))
+    //{
+    //    Console.WriteLine("bien");
+    //}
 
     // pdf original
     var path = pathExistente;
@@ -73,7 +76,7 @@ try
 
     // logica
     string text = String.Empty;
-
+    List<string> listaRutPdf = new List<string>();
     var cantidadPaginas = pdfDocument.GetNumberOfPages();
     for (int i = 1; i <= pdfDocument.GetNumberOfPages(); ++i)
     {
@@ -88,15 +91,27 @@ try
         //var rutSeteado = Regex.Replace(rut, @"\s", ""); "[@,\\.\";'\\\\]"
         var rutSeteado = Regex.Replace(rut, @"\,", "");
 
-        Console.WriteLine(rut);
+        //Console.WriteLine(rut);
 
         if (listaRut.Contains(rutSeteado))
         {
             pdfDocument2.AddPage(page.CopyTo(pdfDocument2));
         }
+        listaRutPdf.Add(rutSeteado);
     }
     pdfDocument.Close();
     pdfDocument2.Close();
+
+    Console.WriteLine("\n\n************************************************************");
+    Console.WriteLine("\n\nRut's NO encontrados en el PDF:\n");
+    foreach (var rut in listaRut)
+    {
+        if(!listaRutPdf.Contains(rut))
+        {
+            Console.WriteLine("> " + rut);
+        }
+    }
+    Console.WriteLine("\n\n************************************************************");
 
     Console.WriteLine("\n\n                                #######                               ");
     Console.WriteLine("                                #######                               ");
